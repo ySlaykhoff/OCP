@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Team {
+public class Team<T extends Person> {
 
 
     private String name;
-    private List<Person> participants= new ArrayList<>();
+    private List<T> participants= new ArrayList<>();
 
     public String getName() {
         return name;
@@ -20,12 +20,12 @@ public class Team {
         this.name = name;
     }
 
-    public void addNewParticipant(Person participant){
+    public void addNewParticipant(T participant){
         participants.add(participant);
         System.out.println("Добавлен новый учаcтник - " + participant.getName());
     }
 
-    public void playWith(Team team){
+    public void playWith(Team<T> team){
         String winnerName;
         Random random = new Random();
         int status = random.nextInt(2);
