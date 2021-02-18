@@ -22,7 +22,7 @@ public class Team {
 
     public void addNewParticipant(Person participant){
         participants.add(participant);
-        System.out.println("Добавлен новый учатник - " + participant.getName());
+        System.out.println("Добавлен новый учаcтник - " + participant.getName());
     }
 
     public void playWith(Team team){
