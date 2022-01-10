@@ -36,7 +36,7 @@ public class Team<T extends Person> {
         else {
           winnerName = team.getName();
         }
-
+        String Str = "";
         System.out.println("Выграла команда - " + winnerName);
     }
 }
