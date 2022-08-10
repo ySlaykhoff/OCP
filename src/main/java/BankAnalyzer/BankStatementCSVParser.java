@@ -5,11 +5,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BankStatementCSVParser {
+public class BankStatementCSVParser implements BankStatementParser{
 
     public static final DateTimeFormatter DATE_PATTERN = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-    private BankTransaction parseFromCSV(String line){
+    public BankTransaction parseFrom(String line){
         String[] columns = line.split(",");
         LocalDate date = LocalDate.parse(columns[0], DATE_PATTERN);
         double amount = Double.parseDouble(columns[1]);
@@ -18,11 +18,11 @@ public class BankStatementCSVParser {
         return new BankTransaction(date,amount,description);
     }
 
-    public List<BankTransaction> parseLinesFromCSV(List<String> lines){
+    public List<BankTransaction> parseLinesFrom(List<String> lines){
         List<BankTransaction> bankTransactions = new ArrayList<>();
 
         for (String line: lines){
-            bankTransactions.add(parseFromCSV(line));
+            bankTransactions.add(parseFrom(line));
         }
        return bankTransactions;
     }
